@@ -25,8 +25,8 @@ def product_detail(request, category_slug, slug):
 
     related_products = list(product.category.products.filter(parent=None).exclude(id=product.id))
 
-    if len(related_products) >= 3:
-        related_products = random.sample(related_products, 3)
+    if len(related_products) >= 50:
+        related_products = random.sample(related_products, 50)
 
     if product.parent:
         return redirect('product_detail', category_slug=category_slug, slug=product.parent.slug)
